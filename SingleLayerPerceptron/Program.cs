@@ -6,7 +6,7 @@ namespace SingleLayerPerceptron
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
