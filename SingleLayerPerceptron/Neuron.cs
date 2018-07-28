@@ -6,44 +6,24 @@ namespace SingleLayerPerceptron
 {
     class Neuron
     {
-        public double[] inputs;
-        public double[] weights;
-        public double[] final = new double[] { 0, 0, 0};
+        
+        Planeta planeta;
+        //                                       A    B    C    D1   D2   E    F    G    H    K    Dist Tam
+        private double[] weight = new double[] { 0.3, 0.3, 0.3, 0.5, 0.5, 0.7, 0.3, 0.7, 0.7, 0.7, 0.6, 0.7 };
 
-        public Neuron( double[] inputs, double[] weights)
+        public Neuron( Planeta planeta )
         {
+            this.planeta = planeta;
 
+        }
+        
+
+        public int Try()
+        {
             
-            this.inputs = inputs;
-            this.weights = weights;
 
+            return 0;
         }
-
-        public void WeightedInputs()
-        {
-            for (int i = 0; i < inputs.Length; i++)
-            {
-                inputs[i] = inputs[i] * weights[i];
-                //if (inputs[i] > 1)
-                //{
-                //    final[i] = 1;
-                //}
-                //else
-                //{
-                //    final[i] = 0;
-                //}
-            }
-        }
-
-        public void WeightAdjustment()
-        {
-            for (int i = 0; i < inputs.Length; i++)
-            {
-                double result = 1.001 * inputs[i] * final[i];
-                weights[i] -= result;
-            }
-        }
-
        
 
     }

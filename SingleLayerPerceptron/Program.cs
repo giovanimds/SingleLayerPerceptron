@@ -6,51 +6,32 @@ namespace SingleLayerPerceptron
     {
         static void Main(string[] args)
         {
+            
+            int key = 1;
+            bool exit = true;
+            Planeta planeta;
 
-            bool error = true;
-            double[] expected = new double[] { 1, 4, 2 };
-
-            Neuron neuron1 = new Neuron(new double[] { 0.3, 0.5, 0.4}, new double[] { 0.7, 0.8, 0.9 });
-            Neuron neuron2 = new Neuron(new double[] { 0.36, 0.7, 0.5 }, new double[] { 0.1, 0.2, 0.05 });
-
-            while (error)
+            while (key != 0)
             {
-                error = false;
-
-                Console.WriteLine("----------------------NEURON1---------------------");
-                Console.WriteLine("I " + neuron1.inputs[0] + " " + neuron1.inputs[1] + " " + neuron1.inputs[2]);
-                Console.WriteLine("I " + neuron1.weights[0] + " " + neuron1.weights[1] + " " + neuron1.weights[2]);
-                Console.WriteLine("----------------------NEURON1---------------------");
-
-                Console.WriteLine("----------------------NEURON2---------------------");
-                Console.WriteLine("I " + neuron2.inputs[0] +" "+ neuron2.inputs[1] + " " + neuron2.inputs[2]);
-                Console.WriteLine("I " + neuron2.weights[0] + " " + neuron2.weights[1] + " " + neuron2.weights[2]);
-                Console.WriteLine("----------------------NEURON2---------------------");
-
-                
-                //do it for the first time when running the neuron
-                neuron1.WeightedInputs();
-                neuron2.WeightedInputs();
-
-                for (int i = 0; i < expected.Length; i++)
+                planeta = new Planeta();
+                while (exit)
                 {
-                    if (!Convert.ToInt32(neuron1.inputs[i]).Equals(expected[i]))
+                    Console.WriteLine("Digite um comprimento de onda em nm de um elemento presente no Planeta (xxx.xx)");
+                    planeta.setPresent(double.Parse(Console.ReadLine()));
+                    Console.WriteLine("pressione 0 para sair, 1 para digitar um novo valor");
+                    if(Console.Read() == 0)
                     {
-                        double result = 1.0001 * neuron1.inputs[i] * neuron1.final[i];
-                        neuron1.weights[i] += result;
-                        error = true;
+                        exit = false;
                     }
-                    if (!Convert.ToInt32(neuron2.inputs[i]).Equals(expected[i]))
-                    {
-                        double result = 1.0001 * neuron1.inputs[i] * neuron1.final[i];
-                        neuron1.weights[i] += result;
-                        error = true;
-                    }
+                    Console.Clear();
                 }
-
                 
 
-                Console.Read();
+
+
+
+                Console.WriteLine("Pressione 0 para sair, 1 para começar novamente");
+                key = Console.Read();
 
 
             }
